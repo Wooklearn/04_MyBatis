@@ -41,7 +41,7 @@ public class Application {
         Configuration configuration = new Configuration(environment);
 
         /* index. 4. DataBase 와 접근을 할 수 있는 클래스 등록 */
-        configuration.addMapper(Mapper.class);
+        configuration.addMapper(Mapper.class);      // add 까먹지 말기
 
         /* index. 3. DataBase 와 접속 할 정보 만들었다. 이제 Session 구성 */
         /* comment.
