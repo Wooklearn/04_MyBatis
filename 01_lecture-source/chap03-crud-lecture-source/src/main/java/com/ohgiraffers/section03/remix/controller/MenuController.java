@@ -1,8 +1,8 @@
-package com.ohgiraffers.section01.xmlconfig.controller;
+package com.ohgiraffers.section03.remix.controller;
 
-import com.ohgiraffers.section01.xmlconfig.model.dto.MenuDTO;
-import com.ohgiraffers.section01.xmlconfig.model.service.MenuService;
-import com.ohgiraffers.section01.xmlconfig.view.PrintResult;
+import com.ohgiraffers.section03.remix.model.dto.MenuDTO;
+import com.ohgiraffers.section03.remix.model.service.MenuService;
+import com.ohgiraffers.section03.remix.view.PrintResult;
 
 import java.util.List;
 import java.util.Map;
@@ -52,7 +52,8 @@ public class MenuController {
         // 사용자가 입력한 String 타입의 값을 우리가 설계한 자료형에 맞게 parsing
         int code = Integer.parseInt(parameter.get("menuCode"));
 
-        MenuDTO menu = menuService.selectMenuByMenuCode(code);
+
+        MenuDTO menu = menuService.selectMenuByCode(code);
 
         if (menu != null) {
             printResult.printMenu(menu);
@@ -75,7 +76,6 @@ public class MenuController {
         newMenu.setMenuPrice(menuPrice);
         newMenu.setCategoryCode(categoryCode);
 
-
         if (menuService.insertNewMenu(newMenu)) {
             printResult.printSuccessMessage("insert");
         } else {
@@ -83,6 +83,7 @@ public class MenuController {
         }
 
     }
+
 
     public void modifyMenu(Map<String, String> parameter) {
 
@@ -106,10 +107,17 @@ public class MenuController {
         }
     }
 
-//    public void delete(Map<String, String> stringStringMap) {
-//
-//        menuService.deleteMenu(deleteMenu);
-//
-//
-//    }
+    public void deleteMenu(Map<String, String> parameter) {
+
+        int code = Integer.parseInt(parameter.get("menuCode"));
+
+        if (menuService.deleteMenu(code)) {
+            printResult.printSuccessMessage("delete");
+
+        } else {
+
+            printResult.printErrorMessage("delete");
+
+        }
+    }
 }

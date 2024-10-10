@@ -1,8 +1,7 @@
-package com.ohgiraffers.section01.xmlconfig.view;
+package com.ohgiraffers.section03.remix.view;
 
-import com.ohgiraffers.section01.xmlconfig.controller.MenuController;
+import com.ohgiraffers.section03.remix.controller.MenuController;
 
-import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -14,12 +13,12 @@ public class MenuView {
         따라서 실질적으로 사용자들이 볼 수 있는 화면을 만들 수는 없지만,
         콘솔찰을 사용자들이 볼 수 있는 화면이라고 생각하고 진행해보자.*/
     /* comment.
-    *   시스템 요구사항
-    *   1. 메뉴 전체 조회
-    *   2. 메뉴 코드로 메뉴 조회
-    *   3. 신규 메뉴 등록
-    *   4. 메뉴 수정
-    *   5. 메뉴 삭제 */
+     *   시스템 요구사항
+     *   1. 메뉴 전체 조회
+     *   2. 메뉴 코드로 메뉴 조회
+     *   3. 신규 메뉴 등록
+     *   4. 메뉴 수정
+     *   5. 메뉴 삭제 */
 
     public void display() {
 
@@ -43,32 +42,35 @@ public class MenuView {
                 case 1:
                     menuController.selectAllMenu();
                     break;
-//                case 2:
-//                    menuController.selectMenuByCode(inputMenuCode());
-//                    break;
-//                case 3:
-//                    menuController.insertNewMenu(inputMenu());
-//                    break;
-//                case 4:
-//                    menuController.modifyMenu(inputModifyMenu());
-//                    break;
-//                case 5:
-//                    menuController.delete(inputDelete());
-//                    break;
+                case 2:
+                    menuController.selectMenuByCode(inputMenuCode());
+                    break;
+                case 3:
+                    menuController.insertNewMenu(inputMenu());
+                    break;
+                case 4:
+                    menuController.modifyMenu(inputModifyMenu());
+                    break;
+                case 5:
+                    menuController.deleteMenu(inputDelete());
+                    break;
 
             }
 
-        } while (true);
+        }
+
+        while (true) ;
 
     }
-    private static Map<String, String> inputDelete() {
+
+    private static Map<String, String> inputDelete () {
 
         Scanner sc = new Scanner(System.in);
         System.out.print("삭제하실 메뉴 코드를 입력해주세요 : ");
         String delete = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
-//        parameter.remove()
+        parameter.remove(delete);
         return null;
 
     }
@@ -94,7 +96,6 @@ public class MenuView {
 
     }
 
-
     private  static Map<String, String> inputMenu() {
         // 메뉴 이름, 가격, 카테고리 코드를 입력 받아 넘겨주기
         Scanner sc = new Scanner(System.in);
@@ -114,7 +115,7 @@ public class MenuView {
 
     }
 
-    private static Map<String, String> inputMenuCode() {
+    private static Map<String, String> inputMenuCode () {
         Scanner sc = new Scanner(System.in);
         System.out.print("검색하실 메뉴 코드를 입력해주세요 : ");
         String menuCode = sc.nextLine();

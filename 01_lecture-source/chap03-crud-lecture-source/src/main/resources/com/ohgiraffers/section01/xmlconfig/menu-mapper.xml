@@ -74,4 +74,11 @@
             MENU_CODE = #{ menuCode }
     </update>
 
+    <delete id="deleteMenu">
+        DELETE FROM TBL_MENU
+
+
+
+
+    </delete>
 </mapper>
