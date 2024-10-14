@@ -111,12 +111,15 @@ public class MenuController {
 
         int code = Integer.parseInt(parameter.get("menuCode"));
 
-        if (menuService.deleteMenu(code)) {
-            printResult.printSuccessMessage("delete");
+        MenuDTO menuCode = new MenuDTO();
+        menuCode.setMenuCode(code);
+
+        if (menuService.deleteMenu(menuCode)) {
+            printResult.printSuccessMessage("deleteMenu");
 
         } else {
 
-            printResult.printErrorMessage("delete");
+            printResult.printErrorMessage("deleteMenu");
 
         }
     }

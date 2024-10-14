@@ -135,13 +135,13 @@ public class MenuService {
 
     }
 
-    public boolean deleteMenu(int deleteMenu) {
+    public boolean deleteMenu(MenuDTO menuCode) {
 
         SqlSession sqlSession = getSqlSession();
 
         menuMapper = sqlSession.getMapper(MenuMapper.class);
 
-        int result = menuMapper.delete(deleteMenu);
+        int result = menuMapper.inputDelete(menuCode);
 
         if (result > 0) {
             sqlSession.commit();

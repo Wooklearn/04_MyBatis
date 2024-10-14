@@ -105,11 +105,15 @@ public class MenuController {
             printResult.printErrorMessage("update");
         }
     }
+    public void deleteMenu(Map<String, String> parameter) {
 
-//    public void delete(Map<String, String> stringStringMap) {
-//
-//        menuService.deleteMenu(deleteMenu);
-//
-//
-//    }
+        int code = Integer.parseInt(parameter.get("menuCode"));
+
+        if(menuService.deleteMenu(code)) {
+            printResult.printSuccessMessage("delete");
+        } else {
+            printResult.printErrorMessage("delete");
+        }
+
+    }
 }

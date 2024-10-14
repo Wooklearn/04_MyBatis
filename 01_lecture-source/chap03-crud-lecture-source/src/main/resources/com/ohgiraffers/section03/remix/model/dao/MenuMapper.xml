@@ -60,7 +60,7 @@
         MENU_CODE = #{ menuCode }
     </update>
 
-    <delete id="inputDelete" parameterType="_int">
+    <delete id="inputDelete" parameterType="com.ohgiraffers.section03.remix.model.dto.MenuDTO">
         DELETE
         FROM
             TBL_MENU

@@ -70,8 +70,8 @@ public class MenuView {
         String delete = sc.nextLine();
 
         Map<String, String> parameter = new HashMap<>();
-        parameter.remove(delete);
-        return null;
+        parameter.put("menuCode", delete);
+        return parameter;
 
     }
 

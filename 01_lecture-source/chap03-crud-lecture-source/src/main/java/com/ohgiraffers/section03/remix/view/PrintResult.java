@@ -34,6 +34,9 @@ public class PrintResult {
             case "update":
                 errorMessage = "메뉴 수정에 실패하셨습니다...";
                 break;
+            case "deleteMenu" :
+                errorMessage = "메뉴 삭제에 실패하셨습니다...";
+                break;
         }
 
         System.out.println(errorMessage);
@@ -60,6 +63,9 @@ public class PrintResult {
                 break;
             case "update":
                 successMessage = "메뉴 수정 성공!!!";
+                break;
+            case "deleteMenu" :
+                successMessage = "해당 코드 메뉴 삭제에 성공했습니다!!!";
                 break;
         }
 
