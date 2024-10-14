@@ -59,7 +59,7 @@ public class Application {
             switch (no) {
                 case 1 : menuService.searchMenuByCodeOrSearchAll(inputAllOrOne()); break;
                 case 2 : menuService.searchMenuByNameOrCategory(inputSearchCriteriaMap()); break;
-                case 3 : menuService.modifyMenu(inputCaange()); break;
+                case 3 : menuService.modifyMenu(inputChange()); break;
 
             }
 
@@ -67,7 +67,7 @@ public class Application {
 
     }
 
-    private static Map<String, Object> inputCaange() {
+    private static Map<String, Object> inputChange() {
 
         Scanner sc = new Scanner(System.in);
         System.out.print("변경 할 메뉴 코드를 입력해주세요 : ");
@@ -123,7 +123,7 @@ public class Application {
     private static SearchCriteria inputAllOrOne() {
         // SearchCriteria -> 검색조건 // value -> 값
         Scanner sc = new Scanner(System.in);
-        System.out.print("검색조건을 입려하시겠습니까?(예 OR 아니오) : ");
+        System.out.print("검색조건을 입력하시겠습니까?(예 OR 아니오) : ");
         boolean hasSearchValue = "예".equals(sc.nextLine()) ? true : false;
 
         SearchCriteria searchCriteria = new SearchCriteria();
