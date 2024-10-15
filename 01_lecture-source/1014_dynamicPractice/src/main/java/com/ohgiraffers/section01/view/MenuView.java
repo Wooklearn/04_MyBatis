@@ -1,7 +1,11 @@
 package com.ohgiraffers.section01.view;
 
 import com.ohgiraffers.section01.controller.Controller;
+import com.ohgiraffers.section01.model.dto.DepartmentDTO;
+import com.ohgiraffers.section01.model.dto.EmployeeDTO;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class MenuView {
@@ -15,7 +19,7 @@ public class MenuView {
 
         System.out.println("=== HiMedia 회사 ===");
         System.out.println("1. 급여 금액대 직원 조회");
-        System.out.println("2. 부서 코드로 직원 조회");
+        System.out.println("2. 부서명으로 직원 조회");
         System.out.println("3. 3명의 직원 랜덤 조회");
         System.out.println("4. 사번 혹은 부서코드로 검색, 사번과 부서코드 둘 다 일치하는 경우도 검색, 검색 조건 없으면 전체 검색");
         System.out.println("5. 직원 정보 부분수정하기");
@@ -27,9 +31,9 @@ public class MenuView {
             case 1:
                 controller.salaryBysalary(inputSalary()); break;
             case 2:
-                chooseSubMenu(); break;
+                controller.department(inputdepartment()); break;
             case 3:
-                foreachSubMenu(); break;
+//                foreachSubMenu(); break;
             case 4:
 //                trimSubMenu(); break;
             case 9:
@@ -40,25 +44,19 @@ public class MenuView {
     } while (true);
 
 }
+
+    private static Map<String, String> inputdepartment() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("부서명을 입력해주세요 : ");
+        String department = sc.nextLine();
+    }
+
     private static int inputSalary() {
         Scanner sc = new Scanner(System.in);
         System.out.print("조회하실 급여 금액대를 입력해주세요 : ");
         int salary = sc.nextInt();
 
         return salary;
-    }
-
-
-    private void foreachSubMenu() {
-
-    }
-
-    private void chooseSubMenu() {
-
-    }
-
-    private void ifsubMenu() {
-
     }
 
 

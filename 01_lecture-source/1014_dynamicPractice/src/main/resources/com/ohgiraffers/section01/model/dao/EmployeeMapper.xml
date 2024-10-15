@@ -30,5 +30,38 @@
             SALARY &gt; #{salary}
     </select>
 
+    <select id="Department" parameterType="com.ohgiraffers.section01.model.dto.DepartmentDTO" resultMap="memberResultMap">
+        SELECT
+            *
+        FROM
+            EMPLOYEE
+        <where>
+            <choose>
+                <when test="deptTitle == '인사관리부'">
+                    DEFT_CODE IN (D1)
+                </when>
+            </choose>
+        </where>
+
+        <!--
+     comment.
+        <choose>(when/otherwise) 태그 : java 의 switch-case 문의 역할
+        사용방법
+        <choose>
+            <when test='조건'>
+                쿼리문
+            </when>
+            '''
+            <otherwise>
+                쿼리문
+
+            </otherwise>
+        </choose>
+        test 속성 조건에 부합하면 해당하는 when 구문의 쿼리를 수행
+        어떠한 when 구문의 조건도 만족하지 못하면 otherwise 구문의
+        쿼리문 수행
+     -->
+
+    </select>
 
 </mapper>
