@@ -30,15 +30,39 @@
             SALARY &gt; #{salary}
     </select>
 
-    <select id="Department" parameterType="com.ohgiraffers.section01.model.dto.DepartmentDTO" resultMap="memberResultMap">
+    <select id="department" parameterType="com.ohgiraffers.section01.model.dto.SearchCriteria" resultMap="memberResultMap">
         SELECT
             *
         FROM
             EMPLOYEE
         <where>
             <choose>
-                <when test="deptTitle == '인사관리부'">
-                    DEFT_CODE IN (D1)
+                <when test="value == '인사관리부'">
+                    DEPT_CODE IN ('D1')
+                </when>
+                <when test="value == '회계관리부'">
+                    DEPT_CODE IN ('D2')
+                </when>
+                <when test="value == '마케팅부'">
+                    DEPT_CODE IN ('D3')
+                </when>
+                <when test="value == '국내영업부'">
+                    DEPT_CODE IN ('D4')
+                </when>
+                <when test="value == '해외영업1부'">
+                    DEPT_CODE IN ('D5')
+                </when>
+                <when test="value == '해외영업2부'">
+                    DEPT_CODE IN ('D6')
+                </when>
+                <when test="value == '해외영업3부'">
+                    DEPT_CODE IN ('D7')
+                </when>
+                <when test="value == '기술지원부'">
+                    DEPT_CODE IN ('D8')
+                </when>
+                <when test="value == '총무부'">
+                    DEPT_CODE IN ('D9')
                 </when>
             </choose>
         </where>

@@ -1,7 +1,7 @@
 package com.ohgiraffers.section01.controller;
 
-import com.ohgiraffers.section01.model.dto.DepartmentDTO;
 import com.ohgiraffers.section01.model.dto.EmployeeDTO;
+import com.ohgiraffers.section01.model.dto.SearchCriteria;
 import com.ohgiraffers.section01.model.service.EmployeeService;
 import com.ohgiraffers.section01.view.PrintResult;
 
@@ -31,16 +31,15 @@ public class Controller {
         }
     }
 
-    public void department(Map<String, String> parameter) {
+    public void department(SearchCriteria deptCode) {
 
-        List<EmployeeDTO> employeeList = employeeService.departmentName1(parameter);
+        List<EmployeeDTO> employeeList = employeeService.department(deptCode);
 
         if (employeeList != null) {
             printResult.departmentPrint(employeeList);
         } else {
-            printResult.printErrorMessage("departmentName");
+            printResult.printErrorMessage("selectSalary");
         }
-
 
     }
 }

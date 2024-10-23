@@ -1,12 +1,9 @@
 package com.ohgiraffers.section01.view;
 
 import com.ohgiraffers.section01.controller.Controller;
-import com.ohgiraffers.section01.model.dto.DepartmentDTO;
-import com.ohgiraffers.section01.model.dto.EmployeeDTO;
+import com.ohgiraffers.section01.model.dto.SearchCriteria;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class MenuView {
 
@@ -33,7 +30,7 @@ public class MenuView {
             case 2:
                 controller.department(inputdepartment()); break;
             case 3:
-//                foreachSubMenu(); break;
+                controller.randomEmployee(randomEmp()); break;
             case 4:
 //                trimSubMenu(); break;
             case 9:
@@ -45,10 +42,17 @@ public class MenuView {
 
 }
 
-    private static Map<String, String> inputdepartment() {
+    private static List<Integer> randomEmp() {
+        Set<Integer> randomEmp = new TreeSet<>();
+
+    }
+
+    private static SearchCriteria inputdepartment() {
         Scanner sc = new Scanner(System.in);
         System.out.print("부서명을 입력해주세요 : ");
-        String department = sc.nextLine();
+        String value = sc.nextLine();
+
+        return new SearchCriteria("deptCode", value);
     }
 
     private static int inputSalary() {

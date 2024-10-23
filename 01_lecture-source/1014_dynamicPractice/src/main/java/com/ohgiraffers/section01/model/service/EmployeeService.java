@@ -1,8 +1,8 @@
 package com.ohgiraffers.section01.model.service;
 
 import com.ohgiraffers.section01.model.dao.EmployeeMapper;
-import com.ohgiraffers.section01.model.dto.DepartmentDTO;
 import com.ohgiraffers.section01.model.dto.EmployeeDTO;
+import com.ohgiraffers.section01.model.dto.SearchCriteria;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
@@ -28,19 +28,18 @@ public class EmployeeService {
 
     }
 
-    public List<EmployeeDTO> departmentName1(Map<String, String> dept) {
+
+    public List<EmployeeDTO> department(SearchCriteria inputdepartment) {
 
         SqlSession sqlSession = getSqlSession();
 
         employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
 
-//        List<EmployeeDTO> employeeList = employeeMapper.Department(dept);
+        List<EmployeeDTO> employeeList = employeeMapper.department(inputdepartment);
 
-//        sqlSession.close();
-//
-//        return dept;
+        sqlSession.close();
 
-        return null;
+        return employeeList;
 
     }
 }
